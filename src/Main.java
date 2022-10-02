@@ -131,9 +131,8 @@ class StableDeposition extends Deposition {
 
     //定期存款方法，输入金额和存入时间，自动计算利息及到期时间
     public void sDesProcess(double balance, int stage) {
-            double bNum = balance;
-            setInterest(bNum, stage - 1);
-            addBalance(bNum);
+        setInterest(balance, stage - 1);
+            addBalance(balance);
             pMessage(stage - 1);
     }
 
