@@ -1,9 +1,13 @@
 # DepositionSystem_Cooperation
 This is a cooperational item required by SoftWare Engineering.
 It is the second demostrartion that we should work with together.
+# 这是软件工程课的多人合作项目代码部分。
 
 # 程序介绍
     程序名称：居民业务储蓄系统-222401-P&Z&D
+    开发人员：彭俊、赵云鑫、董凤龙
+    开发语言：Java
+    代码管理：Github
 
 # 项目选题：
 
