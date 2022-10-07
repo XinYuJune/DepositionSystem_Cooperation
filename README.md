@@ -8,6 +8,7 @@ It is the second demostrartion that we should work with together.
     开发人员：彭俊、赵云鑫、董凤龙
     开发语言：Java
     代码管理：Github
+    开发文档：
 
 # 项目选题：
 
