@@ -1,4 +1,4 @@
-package src;
+package src.TestClass;
 
 import org.junit.Test;
 
