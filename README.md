@@ -50,4 +50,4 @@ It is the second demostrartion that we should work with together.
 
     （15） 在截止时间前提交。
 # 程序总体流程图
-https://github.com/XinYuJune/DepositionSystem_Cooperation/raw/main/Recourse/Flow_Total.png
+![](https://github.com/XinYuJune/DepositionSystem_Cooperation/raw/main/Recourse/Flow_Total.png)
