@@ -49,3 +49,5 @@ It is the second demostrartion that we should work with together.
     （14） 按照任务清单，给出完成各项任务的估计时间和实际时间；
 
     （15） 在截止时间前提交。
+# 程序总体流程图
+https://github.com/XinYuJune/DepositionSystem_Cooperation/blob/128c011b7f39f18e3a30a6ff0fc0935b8728b352/Recourse/Flow_Total.png
