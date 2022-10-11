@@ -3,12 +3,18 @@ This is a cooperational item required by SoftWare Engineering.
 It is the second demostrartion that we should work with together.
 # 这是软件工程课的多人合作项目代码部分。
 
-# 程序介绍
-    程序名称：居民业务储蓄系统-222401-P&Z&D
+# 程序总览
+    程序名称：居民业务储蓄系统
+    程序版本：V0.1
     开发人员：彭俊、赵云鑫、董凤龙
     开发语言：Java
     代码管理：Github
-    开发文档：
+    开发文档：待补充和完善
+
+# 程序介绍
+    本系统为储蓄业务系统。采用Java语言编写，含有存款、取款、查询余额，计算利息等功能。
+    还可以显示储蓄业主姓名、账号等用户信息（已经提前准备好，可在Deposition类的中的属性进行修改）。
+    本系统较为简单，采用控制台输入输出，没有采用主流SSM面向对象开发模式进行开发。
 
 # 项目选题：
 
