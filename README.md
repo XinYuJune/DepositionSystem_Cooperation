@@ -2,6 +2,7 @@
 This is a cooperational item required by SoftWare Engineering.
 It is the second demostrartion that we should work with together.
 # 这是软件工程课的多人合作项目代码部分。
+# 项目文档：https://www.kdocs.cn/l/ctR4JBANnUkp
 
 # 程序总览
     程序名称：居民业务储蓄系统
