@@ -10,6 +10,7 @@ It is the second demostrartion that we should work with together.
     开发语言：Java
     代码管理：Github
     开发文档：待补充和完善
+    UML图：见Recourse目录
 # 各流程负责人
     总负责：彭俊
     类图和活动图绘制：赵云鑫、董凤龙

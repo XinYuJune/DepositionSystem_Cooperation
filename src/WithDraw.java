@@ -1,9 +1,12 @@
-package src;/*
- *@Author:222401 彭俊
- *Description:TODO 取款类
- *@DateTime: 2022/10/17-10:47
- **/
+package src;
 
-public class WithDraw {
+import src.Deposition;
+
+/*
+ *@Author:222401 彭俊
+ *Description: 取款类，
+ *@DateTime: 11:16 2022/10/17
+ */
+class WithDraw extends Deposition {
 
 }

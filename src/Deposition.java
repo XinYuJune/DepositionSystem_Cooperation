@@ -17,7 +17,7 @@ public class Deposition {
         return account;
     }
 
-    public void addBalance(double currentbalance) {
+    public void setCurrentbalance(double currentbalance) {
         if (currentbalance>0){
             this.currentbalance += currentbalance;
         }
@@ -25,4 +25,13 @@ public class Deposition {
             System.out.println("存入金额需大于0！");
         }
     }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setAccount(int account) {
+        this.account = account;
+    }
+
 }
