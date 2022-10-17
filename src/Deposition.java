@@ -18,10 +18,9 @@ public class Deposition {
     }
 
     public void setCurrentbalance(double currentbalance) {
-        if (currentbalance>0){
+        if (currentbalance > 0) {
             this.currentbalance += currentbalance;
-        }
-        else {
+        } else {
             System.out.println("存入金额需大于0！");
         }
     }
@@ -34,4 +33,8 @@ public class Deposition {
         this.account = account;
     }
 
+    //设置初始化欢迎语句
+    public String getWelcomeMessage() {
+        return "欢迎您使用储蓄业务系统！" + getAccount() + "，" + getUserName();
+    }
 }

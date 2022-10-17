@@ -24,7 +24,7 @@ class StableDeposition extends Deposition {
 
     //每月利率计算，输入金额和存入期限
     public void setInterest(double num, int stage) {
-        interest = num * interestStage[stage]/12;
+        interest = num * interestStage[stage] / 12;
     }
 
     //getter方法取出利息
@@ -34,11 +34,11 @@ class StableDeposition extends Deposition {
 
     //输出定期存入详细信息。
     public void pMessage(int stage) {
-        System.out.println("存入成功！当前定期余额为:" + getCurrentBalance() +"("+interestStageTime[stage]+"个月)"+
+        System.out.println("存入成功！当前定期余额为:" + getCurrentBalance() + "(" + interestStageTime[stage] + "个月)" +
                 "\n利率为:" + getInterestStage(stage) * 100 + "%" +
-                "\n利息为:" + getInterest() +"元/月"+
+                "\n利息为:" + getInterest() + "元/月" +
                 "\n本息合计为:" +
-                (getCurrentBalance() + getInterest()*interestStageTime[stage])+
+                (getCurrentBalance() + getInterest() * interestStageTime[stage]) +
                 "元");
         getDeadlineTime(stage);
 

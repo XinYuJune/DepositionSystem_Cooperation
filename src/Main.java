@@ -11,12 +11,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        //初始化Deposition类及其继承类
+        //初始化Deposition类及其继承类、Scanner类
         Deposition deposition = new Deposition();
         FlexibleDeposition flexibleDeposition = new FlexibleDeposition();
         StableDeposition stableDeposition = new StableDeposition();
-
-        //Scanner类输入金额和选择业务的代表数字
         Scanner scanner = new Scanner(System.in);
 
         //接收输入的业务数字
@@ -26,13 +24,13 @@ public class Main {
         double isUnderZero;
 
         //欢迎语
-        System.out.println("欢迎您！" + deposition.getUserName());
+        System.out.println(deposition.getWelcomeMessage());
 
         //业务闭环，可供用户多次操作和选择，提供主动结束循环出口
         for (int isEnd = 0; isEnd > -1; isEnd++) {
             System.out.println("请输入数字获取对应业务：\n 1.查询余额\n 2.存定期\n 3.存活期\n 4.退出 ");
             //根据输入的数字办理业务
-            inputNum= scanner.nextInt();
+            inputNum = scanner.nextInt();
             switch (inputNum) {
                 //查询余额
                 case 1: {
@@ -62,11 +60,12 @@ public class Main {
                         case 6: {
 
                             //判断存款是否大于0、将存入金额、选择的档位、传给类中封装方法sDesProcess处理
-                            isUnderZero=scanner.nextDouble();
-                            if (isUnderZero>0){
+                            isUnderZero = scanner.nextDouble();
+                            if (isUnderZero > 0) {
                                 stableDeposition.setDesProcess(isUnderZero, inputNum);
+                            } else {
+                                System.out.println("输入的存款需大于0元！\r\n");
                             }
-                            else {System.out.println("输入的存款需大于0元！\r\n");}
                             continue;
                         }
                         default:
@@ -82,12 +81,14 @@ public class Main {
                 case 3: {
                     System.out.println("输入存入金额：");
                     //存款不能为零
-                    isUnderZero=scanner.nextDouble();
-                    if (isUnderZero>0){
+                    isUnderZero = scanner.nextDouble();
+                    if (isUnderZero > 0) {
                         //进行存款
                         flexibleDeposition.setCurrentbalance(isUnderZero);
                         System.out.println("存入成功！当前活期余额为：" + flexibleDeposition.getCurrentBalance());
-                    }else {System.out.println("输入的存款需大于0元！\r\n");}
+                    } else {
+                        System.out.println("输入的存款需大于0元！\r\n");
+                    }
                     break;
 
                 }
