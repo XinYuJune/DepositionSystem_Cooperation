@@ -35,6 +35,7 @@ public class Deposition {
 
     //设置初始化欢迎语句
     public String getWelcomeMessage() {
-        return "欢迎您使用储蓄业务系统！" + getAccount() + "，" + getUserName();
+        return "嗨，"+getUserName()+"！\n欢迎您使用储蓄业务系统！\n"  + "您的账号为：" + getAccount();
     }
+
 }
