@@ -1,5 +1,8 @@
 package src.Deposition;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 /*
@@ -14,6 +17,12 @@ public class StableDeposition extends Deposition {
     int[] interestStageTime = {3, 6, 12, 24, 36, 60};
     //利息变量
     double interest;
+
+    //Caledar类进行时间比较操作，引入DateTimeFormatter类格式化
+    Calendar calendar = Calendar.getInstance();
+    DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    LocalDate dateInput;
+
 
     //输入数组下标 返回对应的存款利率
     public double getInterestStage(int stage) {
@@ -48,18 +57,25 @@ public class StableDeposition extends Deposition {
         setcurrentBalance(balance);
         pMessage(stage - 1);
     }
+    public LocalDate getInputTime(){
+        return dateInput;
+    }
 
     //反馈定期到期时间方法
     public void getDeadlineTime(int stageTime) {
-        Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, interestStageTime[stageTime]);
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1;
         int date = calendar.get(Calendar.DAY_OF_MONTH);
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minute = calendar.get(Calendar.MINUTE);
-        int second = calendar.get(Calendar.SECOND);
-        int week = calendar.get(Calendar.DAY_OF_WEEK);
-        System.out.printf("到期时间：%d年%02d月%02d日 %02d:%02d:%02d %tA\r\n", year, month, date, hour, minute, second, calendar);
+//        int hour = calendar.get(Calendar.HOUR_OF_DAY);
+//        int minute = calendar.get(Calendar.MINUTE);
+//        int second = calendar.get(Calendar.SECOND);
+//        int week = calendar.get(Calendar.DAY_OF_WEEK);
+        dateInput=LocalDate.of(year,month,date);
+        System.out.printf("到期时间：%d-%02d-%02d  %tA\r\n", year, month, date, calendar);
+
+    }
+    public boolean compareTime(){
+        return false;
     }
 }
