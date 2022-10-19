@@ -141,12 +141,16 @@ public class Main {
                         case 1:{
                             System.out.println("输入取出的金额：");
                             tempBalance= scanner.nextDouble();
+
+                            //输入金额是否正确
                             if (tempBalance<0){
                                 System.out.println("取款失败！您的输入的金额有误！");
                             }
+                            //余额是否足够
                             else if (flexibleDeposition.getCurrentBalance()==0){
                                 System.out.println("取款失败！账户余额不足！");
                             }
+                            //输入金额若大于余额则失败
                             else if (tempBalance>flexibleDeposition.getCurrentBalance()){
                                 System.out.println("取款失败！取出金额超出余额！");
                             }
