@@ -1,12 +1,12 @@
-package src;
+package src.Deposition;
 
 public class Deposition {
-    double currentbalance = 0;
-    String userName = "1班彭俊";
+    static double currentBalance = 0;
+    String userName = "彭俊小組";
     int account = 20224924;
 
     public double getCurrentBalance() {
-        return currentbalance;
+        return currentBalance;
     }
 
     public String getUserName() {
@@ -17,9 +17,9 @@ public class Deposition {
         return account;
     }
 
-    public void setCurrentbalance(double currentbalance) {
-        if (currentbalance > 0) {
-            this.currentbalance += currentbalance;
+    public void setcurrentBalance(double currentBalance) {
+        if (currentBalance > 0) {
+            this.currentBalance += currentBalance;
         } else {
             System.out.println("存入金额需大于0！");
         }

@@ -1,5 +1,9 @@
 package src;
 
+import src.Deposition.Deposition;
+import src.Deposition.FlexibleDeposition;
+import src.Deposition.StableDeposition;
+
 import java.util.Scanner;
 
 /*
@@ -84,7 +88,7 @@ public class Main {
                             tempBalance = scanner.nextDouble();
                             if (tempBalance > 0) {
                                 //进行存款
-                                flexibleDeposition.setCurrentbalance(tempBalance);
+                                flexibleDeposition.setcurrentBalance(tempBalance);
                                 System.out.println("存入成功！当前活期余额为：￥" + flexibleDeposition.getCurrentBalance());
                             } else {
                                 System.out.println("输入的存款需大于0元！\r\n");

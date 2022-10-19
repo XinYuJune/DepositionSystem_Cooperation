@@ -1,6 +1,4 @@
-package src;
-
-import src.Deposition;
+package src.Deposition;
 
 import java.util.Calendar;
 
@@ -9,7 +7,7 @@ import java.util.Calendar;
  *Description: StableDepostion类，继承自Depostion类，增加存款时间和存款利率以及业务信息输出方法
  *@DateTime: 14:34 2022/9/30
  */
-class StableDeposition extends Deposition {
+public class StableDeposition extends Deposition {
     //存款利率6个档位，使用数组存储
     double[] interestStage = {0.0135, 0.0155, 0.0175, 0.0225, 0.0275, 0.0275};
     //存款时间6个档位，使用数组存储
@@ -47,7 +45,7 @@ class StableDeposition extends Deposition {
     //定期存款方法，输入金额和存入时间，自动计算利息及到期时间
     public void setDesProcess(double balance, int stage) {
         setInterest(balance, stage - 1);
-        setCurrentbalance(balance);
+        setcurrentBalance(balance);
         pMessage(stage - 1);
     }
 

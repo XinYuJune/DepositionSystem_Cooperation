@@ -1,6 +1,4 @@
-package src;
-
-import src.Deposition;
+package src.Deposition;
 
 /*
  *@Author:222401 Åí¿¡
