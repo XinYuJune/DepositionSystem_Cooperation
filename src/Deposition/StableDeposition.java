@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 /*
  *@Author:222401 彭俊
- *Description: StableDepostion类，继承自Depostion类，增加存款时间和存款利率以及业务信息输出方法
+ *Description: StableDepostion类(定期业务类)，继承自Depostion类，增加存款时间和存款利率以及业务信息输出方法
  *@DateTime: 14:34 2022/9/30
  */
 public class StableDeposition extends Deposition {
@@ -32,12 +32,12 @@ public class StableDeposition extends Deposition {
 
     //输出定期存入详细信息。
     public void pMessage(int stage) {
-        System.out.println("存入成功！当前定期余额为:" + getCurrentBalance() + "(" + interestStageTime[stage] + "个月)" +
-                "\n利率为:" + getInterestStage(stage) * 100 + "%" +
-                "\n利息为:" + getInterest() + "元/月" +
-                "\n本息合计为:" +
-                (getCurrentBalance() + getInterest() * interestStageTime[stage]) +
-                "元");
+        System.out.println(
+                "存入成功！当前定期余额为:" + getCurrentBalance() + "(" + interestStageTime[stage] + "个月)\n" +
+                "利率为:" + getInterestStage(stage) * 100 + "%\n" +
+                "利息为:" + getInterest() + "元/月\n" +
+                "本息合计为:" + (getCurrentBalance() + getInterest() * interestStageTime[stage]) + "元"
+        );
         getDeadlineTime(stage);
 
     }
