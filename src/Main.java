@@ -206,7 +206,7 @@ public class Main {
                         System.out.println("请输入新的业务账号:");
                         inputNum = scanner.nextInt();
                         if (inputNum > 20220000 && inputNum <= 20229999) {
-                            userInformation.setAccount(scanner.nextInt());
+                            userInformation.setAccount(inputNum);
                             System.out.println(" 成功！\n新用户名为：" + userInformation.getAccount() + "\n");
                         } else {
                             System.out.println("业务账号格式错误！格式为 2022XXXX \n");
