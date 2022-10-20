@@ -193,7 +193,7 @@ public class Main {
                     case 1: {
                         System.out.println("请输入新的用户名：");
                         tempString = scanner.nextLine();
-                        if (tempString.equals(" ")) {
+                        if (tempString.equals(null)) {
                             System.out.println("用户名不能为空！");
                         } else {
                             userInformation.setUserName(scanner.next());
@@ -206,13 +206,13 @@ public class Main {
                         inputNum = scanner.nextInt();
                         if (inputNum > 20220000 && inputNum <= 20229999) {
                             userInformation.setAccount(inputNum);
-                            System.out.println(" 成功！\n新用户名为：" + userInformation.getAccount() + "\n");
+                            System.out.println(" 成功！\n新业务账号为：" + userInformation.getAccount() + "\n");
                         } else {
                             System.out.println("业务账号格式错误！格式为 2022XXXX \n");
                         }
-                        break;
-
                     }
+                    case 3:
+                        break;
                     default: {
                         System.out.println("数字输入错误！请输入正确数字！");
                     }
