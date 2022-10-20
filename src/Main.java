@@ -120,7 +120,7 @@ public class Main {
                             tempBalance = scanner.nextDouble();
                             if (tempBalance > 0) {
                                 //进行存款
-                                flexibleDeposition.setcurrentBalance(tempBalance);
+                                flexibleDeposition.setCurrentBalance(tempBalance);
                                 System.out.println("存入成功！当前活期余额为：￥" + flexibleDeposition.getCurrentBalance());
                             } else {
                                 System.out.println("输入的存款需大于0元！\r\n");
@@ -148,7 +148,7 @@ public class Main {
                             System.out.println("输入取出的金额：");
                             tempBalance = scanner.nextDouble();
                             if (flexibleDeposition.isLegalInputNum(tempBalance)) {
-                                flexibleDeposition.setcurrentBalance(flexibleDeposition.getCurrentBalance() - tempBalance);
+                                flexibleDeposition.setCurrentBalance(flexibleDeposition.getCurrentBalance() - tempBalance);
                                 System.out.println("取出成功！\n您当前可用的金额为：" + flexibleDeposition.getCurrentBalance());
                             }
                             break;
@@ -166,7 +166,7 @@ public class Main {
                                 System.out.println("输入取出金额");
                                 tempBalance=scanner.nextDouble();
                                 if (stableDeposition.isLegalInputNum(tempBalance)){
-                                    stableDeposition.setcurrentBalance(stableDeposition.getCurrentBalance()-tempBalance);
+                                    stableDeposition.setCurrentBalance(stableDeposition.getCurrentBalance()-tempBalance);
                                     System.out.println("取出成功！已经取出:￥"+tempBalance);
                                 }
 
