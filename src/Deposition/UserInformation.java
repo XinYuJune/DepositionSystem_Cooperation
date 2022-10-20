@@ -1,13 +1,13 @@
 package src.Deposition;/*
- *@Author:222401 Åí¿¡
+ *@Author:222401 å½­ä¿Š
  *Description:TODO
  *@DateTime: 2022/10/19-16:39
  **/
 
 public class UserInformation {
-    //ÓÃ»§ĞÕÃû
-    String userName = "Åí¿¡";
-    //ÓÃ»§ÕËºÅ
+    //ç”¨æˆ·å§“å
+    String userName = "å½­ä¿Š";
+    //ç”¨æˆ·è´¦å·
     int account = 20224924;
 
     public void setUserName(String userName) {
@@ -27,9 +27,9 @@ public class UserInformation {
     }
 
 
-    //ÉèÖÃ³õÊ¼»¯»¶Ó­Óï¾ä
+    //è®¾ç½®åˆå§‹åŒ–æ¬¢è¿è¯­å¥
     public String getWelcomeMessage() {
-        return "àË£¬" + getUserName() + "£¡\n»¶Ó­ÄúÊ¹ÓÃ´¢ĞîÒµÎñÏµÍ³£¡\n" + "ÄúµÄÕËºÅÎª£º" + getAccount();
+        return "å—¨ï¼Œ" + getUserName() + "ï¼\næ¬¢è¿æ‚¨ä½¿ç”¨å‚¨è“„ä¸šåŠ¡ç³»ç»Ÿï¼\n" + "æ‚¨çš„è´¦å·ä¸ºï¼š" + getAccount();
     }
 
 }

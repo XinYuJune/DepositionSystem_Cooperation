@@ -4,51 +4,51 @@ import java.time.LocalDate;
 import java.util.Calendar;
 
 /*
- *@Author:222401 Åí¿¡
- *Description: StableDepostionÀà(¶¨ÆÚÒµÎñÀà)£¬¼Ì³Ğ×ÔDepostionÀà£¬Ôö¼Ó´æ¿îÊ±¼äºÍ´æ¿îÀûÂÊÒÔ¼°ÒµÎñĞÅÏ¢Êä³ö·½·¨
+ *@Author:222401 å½­ä¿Š
+ *Description: StableDepostionç±»(å®šæœŸä¸šåŠ¡ç±»)ï¼Œç»§æ‰¿è‡ªDepostionç±»ï¼Œå¢åŠ å­˜æ¬¾æ—¶é—´å’Œå­˜æ¬¾åˆ©ç‡ä»¥åŠä¸šåŠ¡ä¿¡æ¯è¾“å‡ºæ–¹æ³•
  *@DateTime: 14:34 2022/9/30
  */
 public class StableDeposition extends Deposition {
-    //´æ¿îÀûÂÊ6¸öµµÎ»£¬Ê¹ÓÃÊı×é´æ´¢
+    //å­˜æ¬¾åˆ©ç‡6ä¸ªæ¡£ä½ï¼Œä½¿ç”¨æ•°ç»„å­˜å‚¨
     double[] interestStage = {0.0135, 0.0155, 0.0175, 0.0225, 0.0275, 0.0275};
-    //´æ¿îÊ±¼ä6¸öµµÎ»£¬Ê¹ÓÃÊı×é´æ´¢
+    //å­˜æ¬¾æ—¶é—´6ä¸ªæ¡£ä½ï¼Œä½¿ç”¨æ•°ç»„å­˜å‚¨
     int[] interestStageTime = {3, 6, 12, 24, 36, 60};
-    //ÀûÏ¢±äÁ¿
+    //åˆ©æ¯å˜é‡
     double interest;
 
-    //CaledarÀà½øĞĞÊ±¼ä±È½Ï²Ù×÷£¬ÒıÈëDateTimeFormatterÀà¸ñÊ½»¯
+    //Caledarç±»è¿›è¡Œæ—¶é—´æ¯”è¾ƒæ“ä½œï¼Œå¼•å…¥DateTimeFormatterç±»æ ¼å¼åŒ–
     Calendar calendar = Calendar.getInstance();
     LocalDate dateInput;
 
 
-    //ÊäÈëÊı×éÏÂ±ê ·µ»Ø¶ÔÓ¦µÄ´æ¿îÀûÂÊ
+    //è¾“å…¥æ•°ç»„ä¸‹æ ‡ è¿”å›å¯¹åº”çš„å­˜æ¬¾åˆ©ç‡
     public double getInterestStage(int stage) {
         return interestStage[stage];
     }
 
-    //Ã¿ÔÂÀûÂÊ¼ÆËã£¬ÊäÈë½ğ¶îºÍ´æÈëÆÚÏŞ
+    //æ¯æœˆåˆ©ç‡è®¡ç®—ï¼Œè¾“å…¥é‡‘é¢å’Œå­˜å…¥æœŸé™
     public void setInterest(double num, int stage) {
         interest = num * interestStage[stage] / 12;
     }
 
-    //getter·½·¨È¡³öÀûÏ¢
+    //getteræ–¹æ³•å–å‡ºåˆ©æ¯
     public double getInterest() {
         return interest;
     }
 
-    //Êä³ö¶¨ÆÚ´æÈëÏêÏ¸ĞÅÏ¢¡£
+    //è¾“å‡ºå®šæœŸå­˜å…¥è¯¦ç»†ä¿¡æ¯ã€‚
     public void pMessage(int stage) {
         System.out.println(
-                "´æÈë³É¹¦£¡µ±Ç°¶¨ÆÚÓà¶îÎª:" + getCurrentBalance() + "(" + interestStageTime[stage] + "¸öÔÂ)\n" +
-                "ÀûÂÊÎª:" + getInterestStage(stage) * 100 + "%\n" +
-                "ÀûÏ¢Îª:" + getInterest() + "Ôª/ÔÂ\n" +
-                "±¾Ï¢ºÏ¼ÆÎª:" + (getCurrentBalance() + getInterest() * interestStageTime[stage]) + "Ôª"
+                "å­˜å…¥æˆåŠŸï¼å½“å‰å®šæœŸä½™é¢ä¸º:" + getCurrentBalance() + "(" + interestStageTime[stage] + "ä¸ªæœˆ)\n" +
+                "åˆ©ç‡ä¸º:" + getInterestStage(stage) * 100 + "%\n" +
+                "åˆ©æ¯ä¸º:" + getInterest() + "å…ƒ/æœˆ\n" +
+                "æœ¬æ¯åˆè®¡ä¸º:" + (getCurrentBalance() + getInterest() * interestStageTime[stage]) + "å…ƒ"
         );
         getDeadlineTime(stage);
 
     }
 
-    //¶¨ÆÚ´æ¿î·½·¨£¬ÊäÈë½ğ¶îºÍ´æÈëÊ±¼ä£¬×Ô¶¯¼ÆËãÀûÏ¢¼°µ½ÆÚÊ±¼ä
+    //å®šæœŸå­˜æ¬¾æ–¹æ³•ï¼Œè¾“å…¥é‡‘é¢å’Œå­˜å…¥æ—¶é—´ï¼Œè‡ªåŠ¨è®¡ç®—åˆ©æ¯åŠåˆ°æœŸæ—¶é—´
     public void setDesProcess(double balance, int stage) {
         setInterest(balance, stage - 1);
         setCurrentBalance(balance);
@@ -58,7 +58,7 @@ public class StableDeposition extends Deposition {
         return dateInput;
     }
 
-    //·´À¡¶¨ÆÚµ½ÆÚÊ±¼ä·½·¨
+    //åé¦ˆå®šæœŸåˆ°æœŸæ—¶é—´æ–¹æ³•
     public void getDeadlineTime(int stageTime) {
         calendar.add(Calendar.MONTH, interestStageTime[stageTime]);
         int year = calendar.get(Calendar.YEAR);
@@ -69,7 +69,7 @@ public class StableDeposition extends Deposition {
 //        int second = calendar.get(Calendar.SECOND);
 //        int week = calendar.get(Calendar.DAY_OF_WEEK);
         dateInput=LocalDate.of(year,month,date);
-        System.out.printf("µ½ÆÚÊ±¼ä£º%d-%02d-%02d  %tA\r\n", year, month, date, calendar);
+        System.out.printf("åˆ°æœŸæ—¶é—´ï¼š%d-%02d-%02d  %tA\r\n", year, month, date, calendar);
 
     }
 }

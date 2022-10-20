@@ -1,7 +1,7 @@
 package src.Deposition;
 
 public class Deposition {
-    //Óà¶î
+    //ä½™é¢
     double currentBalance = 0;
 
     public double getCurrentBalance() {
@@ -12,24 +12,24 @@ public class Deposition {
         if (currentBalance > 0) {
             this.currentBalance += currentBalance;
         } else {
-            System.out.println("´æÈë½ğ¶îĞè´óÓÚ0£¡");
+            System.out.println("å­˜å…¥é‡‘é¢éœ€å¤§äº0ï¼");
         }
     }
 
     public boolean isLegalInputNum(double tempBalance){
-        //ÊäÈë½ğ¶îÊÇ·ñÕıÈ·
+        //è¾“å…¥é‡‘é¢æ˜¯å¦æ­£ç¡®
         if (tempBalance<0){
-            System.out.println("È¡¿îÊ§°Ü£¡ÄúµÄÊäÈëµÄ½ğ¶îÓĞÎó£¡");
+            System.out.println("å–æ¬¾å¤±è´¥ï¼æ‚¨çš„è¾“å…¥çš„é‡‘é¢æœ‰è¯¯ï¼");
             return false;
         }
-        //Óà¶îÊÇ·ñ×ã¹»
+        //ä½™é¢æ˜¯å¦è¶³å¤Ÿ
         else if (getCurrentBalance()==0){
-            System.out.println("È¡¿îÊ§°Ü£¡ÕË»§Óà¶î²»×ã£¡");
+            System.out.println("å–æ¬¾å¤±è´¥ï¼è´¦æˆ·ä½™é¢ä¸è¶³ï¼");
             return false;
         }
-        //ÊäÈë½ğ¶îÈô´óÓÚÓà¶îÔòÊ§°Ü
+        //è¾“å…¥é‡‘é¢è‹¥å¤§äºä½™é¢åˆ™å¤±è´¥
         else if (tempBalance>getCurrentBalance()){
-            System.out.println("È¡¿îÊ§°Ü£¡È¡³ö½ğ¶î³¬³öÓà¶î£¡");
+            System.out.println("å–æ¬¾å¤±è´¥ï¼å–å‡ºé‡‘é¢è¶…å‡ºä½™é¢ï¼");
             return false;
         }
         else {
