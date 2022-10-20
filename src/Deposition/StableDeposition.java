@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Calendar;
 
 /*
- *@Author:222401 彭俊
+ *@Author:222401 Jun
  *Description: StableDepostion类(定期业务类)，继承自Depostion类，增加存款时间和存款利率以及业务信息输出方法
  *@DateTime: 14:34 2022/9/30
  */
