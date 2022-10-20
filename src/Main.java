@@ -1,17 +1,17 @@
 /*
- *@Author:222401 Åí¿¡
- *Description:´¢ĞîÒµÎñÖ÷Àà
+ *@Author:222401 å½­ä¿Š
+ *Description:å‚¨è“„ä¸šåŠ¡ä¸»ç±»
  *@DateTime: 2022/09/29
  **/
 package src;
 
-import src.Deposition.Deposition;
+
 import src.Deposition.FlexibleDeposition;
 import src.Deposition.StableDeposition;
 import src.Deposition.UserInformation;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -19,77 +19,76 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        //ÒıÈëÍâ²¿Àà³õÊ¼»¯ÒµÎñºÍScannerÀàÊäÈë
-        Deposition deposition = new Deposition();
+        //å¼•å…¥å¤–éƒ¨ç±»åˆå§‹åŒ–ä¸šåŠ¡å’ŒScannerç±»è¾“å…¥
         FlexibleDeposition flexibleDeposition = new FlexibleDeposition();
         StableDeposition stableDeposition = new StableDeposition();
         UserInformation userInformation = new UserInformation();
         Scanner scanner = new Scanner(System.in);
-        //ÒıÈëÊ±¼äÏà¹ØÀà½øĞĞµ½ÆÚÊ±¼äÅĞ¶Ï
-        DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        //å¼•å…¥æ—¶é—´ç›¸å…³ç±»è¿›è¡Œåˆ°æœŸæ—¶é—´åˆ¤æ–­
+
         Calendar calendar=Calendar.getInstance();
         LocalDate localDate;
-        //½ÓÊÕÊäÈëµÄÒµÎñÊı×Ö
+        //æ¥æ”¶è¾“å…¥çš„ä¸šåŠ¡æ•°å­—
         int inputNum;
 
-        //ÁÙÊ±¼ÇÂ¼´æ¿î½ğ¶î
+        //ä¸´æ—¶è®°å½•å­˜æ¬¾é‡‘é¢
         double tempBalance;
 
-        //ÁÙÊ±½ÓÊÜÊäÈëµÄ×Ö·û´®
+        //ä¸´æ—¶æ¥å—è¾“å…¥çš„å­—ç¬¦ä¸²
         String tempString;
 
 
-        //ÒµÎñ±Õ»·£¬¿É¹©ÓÃ»§¶à´Î²Ù×÷ºÍÑ¡Ôñ£¬Ìá¹©Ö÷¶¯½áÊøÒµÎñ³ö¿Ú
+        //ä¸šåŠ¡é—­ç¯ï¼Œå¯ä¾›ç”¨æˆ·å¤šæ¬¡æ“ä½œå’Œé€‰æ‹©ï¼Œæä¾›ä¸»åŠ¨ç»“æŸä¸šåŠ¡å‡ºå£
         for (int isEnd = 0; isEnd > -1; isEnd++) {
-            //»¶Ó­Óï
+            //æ¬¢è¿è¯­
             System.out.println(userInformation.getWelcomeMessage());
             System.out.println(
-                    "----¡¾Ö÷²Ëµ¥¡¿----\n" +
-                            "ÇëÊäÈëÊı×Ö»ñÈ¡¶ÔÓ¦ÒµÎñ£º\n" +
-                            "1.²éÑ¯Óà¶î\n" +
-                            "2.´æ¿îÒµÎñ\n" +
-                            "3.È¡¿îÒµÎñ\n" +
-                            "4.ÓÃ»§ĞÅÏ¢±ä¸ü\n" +
-                            "5.ÍË³ö\n" +
+                    "----ã€ä¸»èœå•ã€‘----\n" +
+                            "è¯·è¾“å…¥æ•°å­—è·å–å¯¹åº”ä¸šåŠ¡ï¼š\n" +
+                            "1.æŸ¥è¯¢ä½™é¢\n" +
+                            "2.å­˜æ¬¾ä¸šåŠ¡\n" +
+                            "3.å–æ¬¾ä¸šåŠ¡\n" +
+                            "4.ç”¨æˆ·ä¿¡æ¯å˜æ›´\n" +
+                            "5.é€€å‡º\n" +
                             " ------------");
-            //¸ù¾İÊäÈëµÄÊı×Ö°ìÀíÒµÎñ
+            //æ ¹æ®è¾“å…¥çš„æ•°å­—åŠç†ä¸šåŠ¡
             inputNum = scanner.nextInt();
             switch (inputNum) {
-                //²éÑ¯Óà¶î
+                //æŸ¥è¯¢ä½™é¢
                 case 1: {
-                    //µ÷ÓÃflexibleDepostionÀàºÍstableDepositionÀàÖĞµÄgetter·½·¨²éÑ¯ÓÃ»§Ïà¹ØĞÅÏ¢²¢Êä³ö
+                    //è°ƒç”¨flexibleDepostionç±»å’ŒstableDepositionç±»ä¸­çš„getteræ–¹æ³•æŸ¥è¯¢ç”¨æˆ·ç›¸å…³ä¿¡æ¯å¹¶è¾“å‡º
                     double allNum = flexibleDeposition.getCurrentBalance() + stableDeposition.getCurrentBalance();
                     System.out.println(userInformation.getUserName() + "," +
                             userInformation.getAccount() + "," +
-                            "ÄúµÄÓà¶îÎª£º\n" +
-                            "1.»îÆÚ£º£¤" + flexibleDeposition.getCurrentBalance() + "\n" +
-                            "2.¶¨ÆÚ£º£¤" + stableDeposition.getCurrentBalance() + "\r\n " +
-                            "×ÜÓà¶î£º£¤" + allNum + "\r\n");
+                            "æ‚¨çš„ä½™é¢ä¸ºï¼š\n" +
+                            "1.æ´»æœŸï¼šï¿¥" + flexibleDeposition.getCurrentBalance() + "\n" +
+                            "2.å®šæœŸï¼šï¿¥" + stableDeposition.getCurrentBalance() + "\r\n " +
+                            "æ€»ä½™é¢ï¼šï¿¥" + allNum + "\r\n");
                     break;
                 }
-                //´æ¿îÒµÎñ
+                //å­˜æ¬¾ä¸šåŠ¡
                 case 2: {
-                    //Ñ¡ÔñÊı×Ö°ìÀí»îÆÚ»òÕß¶¨ÆÚ
+                    //é€‰æ‹©æ•°å­—åŠç†æ´»æœŸæˆ–è€…å®šæœŸ
                     System.out.println(
-                            "----¡¾´æ¿îÒµÎñ¡¿----\r\n" +
-                                    "ÇëÑ¡Ôñ£º\n" +
-                                    "1.¡ï¶¨ÆÚ´æ¿î\n" +
-                                    "2.¡ï»îÆÚ´æ¿î\n" +
+                            "----ã€å­˜æ¬¾ä¸šåŠ¡ã€‘----\r\n" +
+                                    "è¯·é€‰æ‹©ï¼š\n" +
+                                    "1.â˜…å®šæœŸå­˜æ¬¾\n" +
+                                    "2.â˜…æ´»æœŸå­˜æ¬¾\n" +
                                     "----------");
                     inputNum = scanner.nextInt();
                     switch (inputNum) {
-                        case 1: {
-                            //Ñ¡Ôñ´æ¿îÊ±¼ä£¬¸ù¾İ½¨ÉèÒøĞĞµ±Ç°ÀûÂÊÉè¶¨
-                            System.out.println("Ñ¡Ôñ¶¨ÆÚ´æ¿îÆÚÏŞ£º\n " +
-                                    "1.3¸öÔÂ \n " +
-                                    "2.6¸öÔÂ \n " +
-                                    "3.1Äê \n " +
-                                    "4.2Äê\n " +
-                                    "5.3Äê\n " +
-                                    "6.5Äê \n " +
-                                    "7.·µ»ØÖ÷²Ëµ¥");
+                        case 1 -> {
+                            //é€‰æ‹©å­˜æ¬¾æ—¶é—´ï¼Œæ ¹æ®å»ºè®¾é“¶è¡Œå½“å‰åˆ©ç‡è®¾å®š
+                            System.out.println("é€‰æ‹©å®šæœŸå­˜æ¬¾æœŸé™ï¼š\n " +
+                                    "1.3ä¸ªæœˆ \n " +
+                                    "2.6ä¸ªæœˆ \n " +
+                                    "3.1å¹´ \n " +
+                                    "4.2å¹´\n " +
+                                    "5.3å¹´\n " +
+                                    "6.5å¹´ \n " +
+                                    "7.è¿”å›ä¸»èœå•");
                             inputNum = scanner.nextInt();
-                            //´æ¿îÆÚÏŞÑ¡ÔñºóÖ´ĞĞ´æ¿î²Ù×÷
+                            //å­˜æ¬¾æœŸé™é€‰æ‹©åæ‰§è¡Œå­˜æ¬¾æ“ä½œ
                             switch (inputNum) {
                                 case 1:
                                 case 2:
@@ -97,60 +96,58 @@ public class Main {
                                 case 4:
                                 case 5:
                                 case 6: {
-                                    System.out.println("ÊäÈë´æ¿î½ğ¶î£º");
-                                    //ÅĞ¶Ï´æ¿îÊÇ·ñ´óÓÚ0¡¢½«´æÈë½ğ¶î¡¢Ñ¡ÔñµÄµµÎ»¡¢´«¸øÀàÖĞ·â×°·½·¨sDesProcess´¦Àí
+                                    System.out.println("è¾“å…¥å­˜æ¬¾é‡‘é¢ï¼š");
+                                    //åˆ¤æ–­å­˜æ¬¾æ˜¯å¦å¤§äº0ã€å°†å­˜å…¥é‡‘é¢ã€é€‰æ‹©çš„æ¡£ä½ã€ä¼ ç»™ç±»ä¸­å°è£…æ–¹æ³•sDesProcesså¤„ç†
                                     tempBalance = scanner.nextDouble();
                                     if (tempBalance > 0) {
                                         stableDeposition.setDesProcess(tempBalance, inputNum);
                                     } else {
-                                        System.out.println("ÊäÈëµÄ´æ¿îĞè´óÓÚ0Ôª£¡\r\n");
+                                        System.out.println("è¾“å…¥çš„å­˜æ¬¾éœ€å¤§äº0å…ƒï¼\r\n");
                                     }
                                     continue;
                                 }
-                                //Ñ¡Ôñ6µµÒÔÍâµÄ´¦Àí·½·¨£¬Ä¬ÈÏ·´À¡´íÎóĞÅÏ¢
+                                //é€‰æ‹©6æ¡£ä»¥å¤–çš„å¤„ç†æ–¹æ³•ï¼Œé»˜è®¤åé¦ˆé”™è¯¯ä¿¡æ¯
                                 default:
-                                    System.out.println("´æ¿îÆÚÏŞÑ¡Ôñ´íÎó£¡");
+                                    System.out.println("å­˜æ¬¾æœŸé™é€‰æ‹©é”™è¯¯ï¼");
                                 case 7: {
                                     continue;
                                 }
                             }
                         }
-                        case 2: {
-                            System.out.println("ÊäÈë´æÈë½ğ¶î£º");
-                            //´æ¿î²»ÄÜÎªÁã
+                        case 2 -> {
+                            System.out.println("è¾“å…¥å­˜å…¥é‡‘é¢ï¼š");
+                            //å­˜æ¬¾ä¸èƒ½ä¸ºé›¶
                             tempBalance = scanner.nextDouble();
                             if (tempBalance > 0) {
-                                //½øĞĞ´æ¿î
+                                //è¿›è¡Œå­˜æ¬¾
                                 flexibleDeposition.setcurrentBalance(tempBalance);
-                                System.out.println("´æÈë³É¹¦£¡µ±Ç°»îÆÚÓà¶îÎª£º£¤" + flexibleDeposition.getCurrentBalance());
+                                System.out.println("å­˜å…¥æˆåŠŸï¼å½“å‰æ´»æœŸä½™é¢ä¸ºï¼šï¿¥" + flexibleDeposition.getCurrentBalance());
                             } else {
-                                System.out.println("ÊäÈëµÄ´æ¿îĞè´óÓÚ0Ôª£¡\r\n");
+                                System.out.println("è¾“å…¥çš„å­˜æ¬¾éœ€å¤§äº0å…ƒï¼\r\n");
                             }
-                            break;
+
                         }
-                        //ÈôÑ¡Ôñ´æÈ¡¿îÒÔÍâµÄÊı×Ö£¬Ôò·µ»Ø´íÎó
-                        default: {
-                            System.out.println("ÒµÎñÑ¡Ôñ´íÎó£¡");
-                            break;
-                        }
+
+                        //è‹¥é€‰æ‹©å­˜å–æ¬¾ä»¥å¤–çš„æ•°å­—ï¼Œåˆ™è¿”å›é”™è¯¯
+                        default -> System.out.println("ä¸šåŠ¡é€‰æ‹©é”™è¯¯ï¼");
                     }
                 }
                 break;
-                //È¡¿îÒµÎñ
+                //å–æ¬¾ä¸šåŠ¡
                 case 3: {
-                    System.out.println("ÇëÊäÈë¶ÔÓ¦Êı×Ö»ñÈ¡¶ÔÓ¦ÒµÎñ:\n" +
-                            "1.È¡»îÆÚ\n" +
-                            "2.È¡¶¨ÆÚ\n" +
-                            "3.·µ»ØÖ÷²Ëµ¥");
+                    System.out.println("è¯·è¾“å…¥å¯¹åº”æ•°å­—è·å–å¯¹åº”ä¸šåŠ¡:\n" +
+                            "1.å–æ´»æœŸ\n" +
+                            "2.å–å®šæœŸ\n" +
+                            "3.è¿”å›ä¸»èœå•");
                     inputNum = scanner.nextInt();
                     switch (inputNum) {
-                        //È¡»îÆÚ
+                        //å–æ´»æœŸ
                         case 1: {
-                            System.out.println("ÊäÈëÈ¡³öµÄ½ğ¶î£º");
+                            System.out.println("è¾“å…¥å–å‡ºçš„é‡‘é¢ï¼š");
                             tempBalance = scanner.nextDouble();
                             if (flexibleDeposition.isLegalInputNum(tempBalance)) {
                                 flexibleDeposition.setcurrentBalance(flexibleDeposition.getCurrentBalance() - tempBalance);
-                                System.out.println("È¡³ö³É¹¦£¡\nÄúµ±Ç°¿ÉÓÃµÄ½ğ¶îÎª£º" + flexibleDeposition.getCurrentBalance());
+                                System.out.println("å–å‡ºæˆåŠŸï¼\næ‚¨å½“å‰å¯ç”¨çš„é‡‘é¢ä¸ºï¼š" + flexibleDeposition.getCurrentBalance());
                             }
                             break;
                         }
@@ -161,14 +158,14 @@ public class Main {
                                     calendar.get(Calendar.DAY_OF_MONTH)
                             );
                             if (stableDeposition.getInputTime().isAfter(localDate)){
-                                System.out.println("ÉĞÎ´µ½ÆÚÎŞ·¨È¡³ö£¡");
+                                System.out.println("å°šæœªåˆ°æœŸæ— æ³•å–å‡ºï¼");
                             }
                             else {
-                                System.out.println("ÊäÈëÈ¡³ö½ğ¶î");
+                                System.out.println("è¾“å…¥å–å‡ºé‡‘é¢");
                                 tempBalance=scanner.nextDouble();
                                 if (stableDeposition.isLegalInputNum(tempBalance)){
                                     stableDeposition.setcurrentBalance(stableDeposition.getCurrentBalance()-tempBalance);
-                                    System.out.println("È¡³ö³É¹¦£¡ÒÑ¾­È¡³ö:£¤"+tempBalance);
+                                    System.out.println("å–å‡ºæˆåŠŸï¼å·²ç»å–å‡º:ï¿¥"+tempBalance);
                                 }
 
                             }
@@ -177,56 +174,54 @@ public class Main {
                             break;
                         }
                         default: {
-                            System.out.println("Ñ¡ÔñÒµÎñ´íÎó£¡");
+                            System.out.println("é€‰æ‹©ä¸šåŠ¡é”™è¯¯ï¼");
                         }
                     }
                 break;
             }
             case 4: {
                 System.out.println(
-                        "ÊäÈëÊı×Ö»ñÈ¡¶ÔÓ¦ÒµÎñ:\n" +
-                                "1.ĞŞ¸ÄÓÃ»§Ãû\n" +
-                                "2.ĞŞ¸ÄÒµÎñÕËºÅ\n" +
-                                "3.·µ»ØÖ÷²Ëµ¥\n");
+                        "è¾“å…¥æ•°å­—è·å–å¯¹åº”ä¸šåŠ¡:\n" +
+                                "1.ä¿®æ”¹ç”¨æˆ·å\n" +
+                                "2.ä¿®æ”¹ä¸šåŠ¡è´¦å·\n" +
+                                "3.è¿”å›ä¸»èœå•\n");
                 inputNum = scanner.nextInt();
 
                 switch (inputNum) {
-                    case 1: {
-                        System.out.println("ÇëÊäÈëĞÂµÄÓÃ»§Ãû£º");
+                    case 1 -> {
+                        System.out.println("è¯·è¾“å…¥æ–°çš„ç”¨æˆ·åï¼š");
                         tempString = scanner.nextLine();
                         if (tempString.equals(" ")) {
-                            System.out.println("ÓÃ»§Ãû²»ÄÜÎª¿Õ£¡");
+                            System.out.println("ç”¨æˆ·åä¸èƒ½ä¸ºç©ºï¼");
                         } else {
                             userInformation.setUserName(scanner.next());
                         }
-                        System.out.println("ĞŞ¸Ä³É¹¦£¡\nĞÂÓÃ»§ÃûÎª£º" + userInformation.getUserName());
-                        break;
+                        System.out.println("ä¿®æ”¹æˆåŠŸï¼\næ–°ç”¨æˆ·åä¸ºï¼š" + userInformation.getUserName());
+
                     }
-                    case 2: {
-                        System.out.println("ÇëÊäÈëĞÂµÄÒµÎñÕËºÅ:");
+                    case 2 -> {
+                        System.out.println("è¯·è¾“å…¥æ–°çš„ä¸šåŠ¡è´¦å·:");
                         inputNum = scanner.nextInt();
                         if (inputNum > 20220000 && inputNum <= 20229999) {
                             userInformation.setAccount(inputNum);
-                            System.out.println(" ³É¹¦£¡\nĞÂÓÃ»§ÃûÎª£º" + userInformation.getAccount() + "\n");
+                            System.out.println(" æˆåŠŸï¼\næ–°ç”¨æˆ·åä¸ºï¼š" + userInformation.getAccount() + "\n");
                         } else {
-                            System.out.println("ÒµÎñÕËºÅ¸ñÊ½´íÎó£¡¸ñÊ½Îª 2022XXXX \n");
+                            System.out.println("ä¸šåŠ¡è´¦å·æ ¼å¼é”™è¯¯ï¼æ ¼å¼ä¸º 2022XXXX \n");
                         }
-                        break;
+
 
                     }
-                    default: {
-                        System.out.println("Êı×ÖÊäÈë´íÎó£¡ÇëÊäÈëÕıÈ·Êı×Ö£¡");
-                    }
+                    default -> System.out.println("æ•°å­—è¾“å…¥é”™è¯¯ï¼è¯·è¾“å…¥æ­£ç¡®æ•°å­—ï¼");
                 }
                 break;
             }
-            //ÍË³öÒµÎñÁ÷³Ì
+            //é€€å‡ºä¸šåŠ¡æµç¨‹
             case 5: {
-                System.out.println("¼´½«ÍË³ö,¸ĞĞ»ÄúµÄÊ¹ÓÃ....");
+                System.out.println("å³å°†é€€å‡º,æ„Ÿè°¢æ‚¨çš„ä½¿ç”¨....");
                 isEnd = -2;
             }
             default: {
-                System.out.println("Êı×ÖÊäÈë´íÎó£¡ÇëÊäÈëÕıÈ·Êı×Ö£¡");
+                System.out.println("æ•°å­—è¾“å…¥é”™è¯¯ï¼è¯·è¾“å…¥æ­£ç¡®æ•°å­—ï¼");
             }
         }
     }

@@ -1,17 +1,17 @@
-package src.TestClass;
+package src.Deposition.test;
 
 import org.junit.Test;
 
+import static org.junit.Assert.*;
 
 /*
- *@Author:222401 Åí¿¡
+ *@Author:222401 å½­ä¿Š
  *Description:TODO
- *@DateTime: 2022/9/30-16:46
+ *@DateTime: 2022/10/20-12:10
  **/public class StableDepositionTest {
 
     @Test
     public void getInterestStage() {
-
     }
 
     @Test
@@ -27,10 +27,18 @@ import org.junit.Test;
     }
 
     @Test
-    public void sDesProcess() {
+    public void setDesProcess() {
+    }
+
+    @Test
+    public void getInputTime() {
     }
 
     @Test
     public void getDeadlineTime() {
+    }
+
+    @Test
+    public void compareTime() {
     }
 }
