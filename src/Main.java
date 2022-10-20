@@ -25,7 +25,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         //引入时间相关类进行到期时间判断
 
-        Calendar calendar=Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         LocalDate localDate;
         //接收输入的业务数字
         int inputNum;
@@ -154,20 +154,19 @@ public class Main {
                             break;
                         }
                         case 2: {
-                            localDate=LocalDate.of(
+                            localDate = LocalDate.of(
                                     calendar.get(Calendar.YEAR),
                                     calendar.get(Calendar.MONTH),
                                     calendar.get(Calendar.DAY_OF_MONTH)
                             );
-                            if (stableDeposition.getInputTime().isAfter(localDate)){
+                            if (stableDeposition.getInputTime().isAfter(localDate)) {
                                 System.out.println("尚未到期无法取出！");
-                            }
-                            else {
+                            } else {
                                 System.out.println("输入取出金额");
-                                tempBalance=scanner.nextDouble();
-                                if (stableDeposition.isLegalInputNum(tempBalance)){
-                                    stableDeposition.setcurrentBalance(stableDeposition.getCurrentBalance()-tempBalance);
-                                    System.out.println("取出成功！已经取出:￥"+tempBalance);
+                                tempBalance = scanner.nextDouble();
+                                if (stableDeposition.isLegalInputNum(tempBalance)) {
+                                    stableDeposition.setcurrentBalance(stableDeposition.getCurrentBalance() - tempBalance);
+                                    System.out.println("取出成功！已经取出:￥" + tempBalance);
                                 }
 
                             }
@@ -179,54 +178,54 @@ public class Main {
                             System.out.println("选择业务错误！");
                         }
                     }
-                break;
-            }
-            case 4: {
-                System.out.println(
-                        """
-                                输入数字获取对应业务:
-                                1.修改用户名
-                                2.修改业务账号
-                                3.返回主菜单
-                                """);
-                inputNum = scanner.nextInt();
-
-                switch (inputNum) {
-                    case 1 -> {
-                        System.out.println("请输入新的用户名：");
-                        tempString = scanner.nextLine();
-                        if (tempString.equals(" ")) {
-                            System.out.println("用户名不能为空！");
-                        } else {
-                            userInformation.setUserName(scanner.next());
-                        }
-                        System.out.println("修改成功！\n新用户名为：" + userInformation.getUserName());
-                    }
-                    case 2 -> {
-                        System.out.println("请输入新的业务账号:");
-                        inputNum = scanner.nextInt();
-                        if (inputNum > 20220000 && inputNum <= 20229999) {
-                            userInformation.setAccount(inputNum);
-                            System.out.println(" 成功！\n新用户名为：" + userInformation.getAccount() + "\n");
-                        } else {
-                            System.out.println("业务账号格式错误！格式为 2022**** \n");
-                        }
-
-                    }
-                    default -> System.out.println("数字输入错误！请输入正确数字！");
+                    break;
                 }
-                break;
-            }
-            //退出业务流程
-            case 5: {
-                System.out.println("即将退出,感谢您的使用....");
-                isEnd = -2;
-            }
-            default: {
-                System.out.println("数字输入错误！请输入正确数字！");
+                case 4: {
+                    System.out.println(
+                            """
+                                    输入数字获取对应业务:
+                                    1.修改用户名
+                                    2.修改业务账号
+                                    3.返回主菜单
+                                    """);
+                    inputNum = scanner.nextInt();
+
+                    switch (inputNum) {
+                        case 1 -> {
+                            System.out.println("请输入新的用户名：");
+                            tempString = scanner.nextLine();
+                            if (tempString.equals(" ")) {
+                                System.out.println("用户名不能为空！");
+                            } else {
+                                userInformation.setUserName(scanner.next());
+                            }
+                            System.out.println("修改成功！\n新用户名为：" + userInformation.getUserName());
+                        }
+                        case 2 -> {
+                            System.out.println("请输入新的业务账号:");
+                            inputNum = scanner.nextInt();
+                            if (inputNum > 20220000 && inputNum <= 20229999) {
+                                userInformation.setAccount(inputNum);
+                                System.out.println(" 成功！\n新用户名为：" + userInformation.getAccount() + "\n");
+                            } else {
+                                System.out.println("业务账号格式错误！格式为 2022**** \n");
+                            }
+
+                        }
+                        default -> System.out.println("数字输入错误！请输入正确数字！");
+                    }
+                    break;
+                }
+                //退出业务流程
+                case 5: {
+                    System.out.println("即将退出,感谢您的使用....");
+                    isEnd = -2;
+                }
+                default: {
+                    System.out.println("数字输入错误！请输入正确数字！");
+                }
             }
         }
     }
-}
 }
 
