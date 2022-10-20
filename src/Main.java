@@ -192,7 +192,7 @@ public class Main {
                 switch (inputNum) {
                     case 1: {
                         System.out.println("请输入新的用户名：");
-                        tempString = scanner.next();
+                        tempString = scanner.nextLine();
                         if (tempString.length()>18) {
                             System.out.println("用户名不能超过18位！");
                         } else {
