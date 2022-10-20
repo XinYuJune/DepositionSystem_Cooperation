@@ -2,21 +2,20 @@
 This is a cooperational item required by SoftWare Engineering.
 It is the second demostrartion that we should work with together.
 # 这是软件工程课的多人合作项目代码部分。
-# 项目文档：https://www.kdocs.cn/l/ctR4JBANnUkp
 # 2022/10/19更新:重新设计业务整体逻辑分类：主类、储蓄业务类、活期业务类、定期业务类、用户信息类。
 
 # 程序总览
     程序名称：居民业务储蓄系统
     程序版本：V0.1
-    开发人员：彭俊、赵云鑫、董凤龙
+    开发人员：Jun、Xing、Long
     开发语言：Java
     代码管理：Github
     开发文档：待补充和完善
     UML图：见Recourse目录
 # 各流程负责人
-    总负责：彭俊
-    类图和活动图绘制：赵云鑫、董凤龙
-    代码编写：彭俊
+    总负责：Jun
+    类图和活动图绘制：Xin、Long
+    代码编写：Jun
 
 # 程序需求分析
     储蓄业务系统：分为查询余额、取款、存款三个业务场景。首页显示这三个场景，并显示由用户的ID以及姓名组成的欢迎语。
