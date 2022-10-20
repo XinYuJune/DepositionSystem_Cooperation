@@ -77,7 +77,7 @@ public class Main {
                                     "----------");
                     inputNum = scanner.nextInt();
                     switch (inputNum) {
-                        case 1 -> {
+                        case 1: {
                             //选择存款时间，根据建设银行当前利率设定
                             System.out.println("选择定期存款期限：\n " +
                                     "1.3个月 \n " +
@@ -114,7 +114,7 @@ public class Main {
                                 }
                             }
                         }
-                        case 2 -> {
+                        case 2: {
                             System.out.println("输入存入金额：");
                             //存款不能为零
                             tempBalance = scanner.nextDouble();
@@ -125,11 +125,13 @@ public class Main {
                             } else {
                                 System.out.println("输入的存款需大于0元！\r\n");
                             }
-
+                            break;
                         }
-
                         //若选择存取款以外的数字，则返回错误
-                        default -> System.out.println("业务选择错误！");
+                        default: {
+                            System.out.println("业务选择错误！");
+                            break;
+                        }
                     }
                 }
                 break;
@@ -188,7 +190,7 @@ public class Main {
                 inputNum = scanner.nextInt();
 
                 switch (inputNum) {
-                    case 1 -> {
+                    case 1: {
                         System.out.println("请输入新的用户名：");
                         tempString = scanner.nextLine();
                         if (tempString.equals(" ")) {
@@ -197,9 +199,9 @@ public class Main {
                             userInformation.setUserName(scanner.next());
                         }
                         System.out.println("修改成功！\n新用户名为：" + userInformation.getUserName());
-
+                        break;
                     }
-                    case 2 -> {
+                    case 2: {
                         System.out.println("请输入新的业务账号:");
                         inputNum = scanner.nextInt();
                         if (inputNum > 20220000 && inputNum <= 20229999) {
@@ -208,10 +210,12 @@ public class Main {
                         } else {
                             System.out.println("业务账号格式错误！格式为 2022XXXX \n");
                         }
-
+                        break;
 
                     }
-                    default -> System.out.println("数字输入错误！请输入正确数字！");
+                    default: {
+                        System.out.println("数字输入错误！请输入正确数字！");
+                    }
                 }
                 break;
             }
