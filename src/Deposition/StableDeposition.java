@@ -1,8 +1,6 @@
 package src.Deposition;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 /*
@@ -20,7 +18,6 @@ public class StableDeposition extends Deposition {
 
     //Caledar类进行时间比较操作，引入DateTimeFormatter类格式化
     Calendar calendar = Calendar.getInstance();
-    DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
     LocalDate dateInput;
 
 
@@ -54,7 +51,7 @@ public class StableDeposition extends Deposition {
     //定期存款方法，输入金额和存入时间，自动计算利息及到期时间
     public void setDesProcess(double balance, int stage) {
         setInterest(balance, stage - 1);
-        setcurrentBalance(balance);
+        setCurrentBalance(balance);
         pMessage(stage - 1);
     }
     public LocalDate getInputTime(){
@@ -74,8 +71,5 @@ public class StableDeposition extends Deposition {
         dateInput=LocalDate.of(year,month,date);
         System.out.printf("到期时间：%d-%02d-%02d  %tA\r\n", year, month, date, calendar);
 
-    }
-    public boolean compareTime(){
-        return false;
     }
 }

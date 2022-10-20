@@ -8,7 +8,7 @@ public class Deposition {
         return currentBalance;
     }
 
-    public void setcurrentBalance(double currentBalance) {
+    public void setCurrentBalance(double currentBalance) {
         if (currentBalance > 0) {
             this.currentBalance += currentBalance;
         } else {
