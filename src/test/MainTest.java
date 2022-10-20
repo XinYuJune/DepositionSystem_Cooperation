@@ -1,8 +1,10 @@
 package src.test;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+
+
 
 /*
  *@Author:222401 彭俊
@@ -12,5 +14,6 @@ import static org.junit.Assert.*;
 
     @Test
     public void main() {
+        Assert.assertEquals("0","0");
     }
 }

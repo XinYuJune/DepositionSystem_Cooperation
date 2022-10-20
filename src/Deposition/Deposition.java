@@ -9,11 +9,7 @@ public class Deposition {
     }
 
     public void setCurrentBalance(double currentBalance) {
-        if (currentBalance > 0) {
             this.currentBalance += currentBalance;
-        } else {
-            System.out.println("存入金额需大于0！");
-        }
     }
 
     public boolean isLegalInputNum(double tempBalance){

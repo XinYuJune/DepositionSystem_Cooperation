@@ -12,7 +12,7 @@ public class StableDeposition extends Deposition {
     //存款利率6个档位，使用数组存储
     double[] interestStage = {0.0135, 0.0155, 0.0175, 0.0225, 0.0275, 0.0275};
     //存款时间6个档位，使用数组存储
-    int[] interestStageTime = {3, 6, 12, 24, 36, 60};
+    int[] interestStageTime = {0, 6, 12, 24, 36, 60};
     //利息变量
     double interest;
 
@@ -69,6 +69,7 @@ public class StableDeposition extends Deposition {
 //        int second = calendar.get(Calendar.SECOND);
 //        int week = calendar.get(Calendar.DAY_OF_WEEK);
         dateInput=LocalDate.of(year,month,date);
+        System.out.println(dateInput);
         System.out.printf("到期时间：%d-%02d-%02d  %tA\r\n", year, month, date, calendar);
 
     }

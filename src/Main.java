@@ -156,7 +156,7 @@ public class Main {
                         case 2: {
                             localDate=LocalDate.of(
                                     calendar.get(Calendar.YEAR),
-                                    calendar.get(Calendar.MONTH),
+                                    calendar.get(Calendar.MONTH)+1,
                                     calendar.get(Calendar.DAY_OF_MONTH)
                             );
                             if (stableDeposition.getInputTime().isAfter(localDate)){
@@ -192,9 +192,9 @@ public class Main {
                 switch (inputNum) {
                     case 1: {
                         System.out.println("请输入新的用户名：");
-                        tempString = scanner.nextLine();
-                        if (tempString.equals(null)) {
-                            System.out.println("用户名不能为空！");
+                        tempString = scanner.next();
+                        if (tempString.length()>18) {
+                            System.out.println("用户名不能超过18位！");
                         } else {
                             userInformation.setUserName(scanner.next());
                         }
@@ -208,7 +208,7 @@ public class Main {
                             userInformation.setAccount(inputNum);
                             System.out.println(" 成功！\n新业务账号为：" + userInformation.getAccount() + "\n");
                         } else {
-                            System.out.println("业务账号格式错误！格式为 2022XXXX \n");
+                            System.out.println("业务账号格式错误！格式为 2022**** \n");
                         }
                     }
                     case 3:
