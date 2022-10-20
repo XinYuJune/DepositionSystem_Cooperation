@@ -5,13 +5,12 @@
  **/
 package src;
 
-import src.Deposition.Deposition;
+
 import src.Deposition.FlexibleDeposition;
 import src.Deposition.StableDeposition;
 import src.Deposition.UserInformation;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -20,13 +19,12 @@ public class Main {
     public static void main(String[] args) {
 
         //引入外部类初始化业务和Scanner类输入
-        Deposition deposition = new Deposition();
         FlexibleDeposition flexibleDeposition = new FlexibleDeposition();
         StableDeposition stableDeposition = new StableDeposition();
         UserInformation userInformation = new UserInformation();
         Scanner scanner = new Scanner(System.in);
         //引入时间相关类进行到期时间判断
-        DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
         Calendar calendar=Calendar.getInstance();
         LocalDate localDate;
         //接收输入的业务数字
@@ -44,20 +42,21 @@ public class Main {
             //欢迎语
             System.out.println(userInformation.getWelcomeMessage());
             System.out.println(
-                    "----【主菜单】----\n" +
-                            "请输入数字获取对应业务：\n" +
-                            "1.查询余额\n" +
-                            "2.存款业务\n" +
-                            "3.取款业务\n" +
-                            "4.用户信息变更\n" +
-                            "5.退出\n" +
-                            " ------------");
+                    """
+                            ----【主菜单】----
+                            请输入数字获取对应业务：
+                            1.查询余额
+                            2.存款业务
+                            3.取款业务
+                            4.用户信息变更
+                            5.退出
+                             ------------""");
             //根据输入的数字办理业务
             inputNum = scanner.nextInt();
             switch (inputNum) {
                 //查询余额
                 case 1: {
-                    //调用flexibleDepostion类和stableDeposition类中的getter方法查询用户相关信息并输出
+                    //调用flexibleDeposition类和stableDeposition类中的getter方法查询用户相关信息并输出
                     double allNum = flexibleDeposition.getCurrentBalance() + stableDeposition.getCurrentBalance();
                     System.out.println(userInformation.getUserName() + "," +
                             userInformation.getAccount() + "," +
@@ -71,23 +70,25 @@ public class Main {
                 case 2: {
                     //选择数字办理活期或者定期
                     System.out.println(
-                            "----【存款业务】----\r\n" +
-                                    "请选择：\n" +
-                                    "1.★定期存款\n" +
-                                    "2.★活期存款\n" +
-                                    "----------");
+                            """
+                                    ----【存款业务】----\r
+                                    请选择：
+                                    1.★定期存款
+                                    2.★活期存款
+                                    ----------""");
                     inputNum = scanner.nextInt();
                     switch (inputNum) {
-                        case 1: {
+                        case 1 -> {
                             //选择存款时间，根据建设银行当前利率设定
-                            System.out.println("选择定期存款期限：\n " +
-                                    "1.3个月 \n " +
-                                    "2.6个月 \n " +
-                                    "3.1年 \n " +
-                                    "4.2年\n " +
-                                    "5.3年\n " +
-                                    "6.5年 \n " +
-                                    "7.返回主菜单");
+                            System.out.println("""
+                                    选择定期存款期限：
+                                     1.3个月\s
+                                     2.6个月\s
+                                     3.1年\s
+                                     4.2年
+                                     5.3年
+                                     6.5年\s
+                                     7.返回主菜单""");
                             inputNum = scanner.nextInt();
                             //存款期限选择后执行存款操作
                             switch (inputNum) {
@@ -115,7 +116,7 @@ public class Main {
                                 }
                             }
                         }
-                        case 2: {
+                        case 2 -> {
                             System.out.println("输入存入金额：");
                             //存款不能为零
                             tempBalance = scanner.nextDouble();
@@ -126,22 +127,20 @@ public class Main {
                             } else {
                                 System.out.println("输入的存款需大于0元！\r\n");
                             }
-                            break;
                         }
+
                         //若选择存取款以外的数字，则返回错误
-                        default: {
-                            System.out.println("业务选择错误！");
-                            break;
-                        }
+                        default -> System.out.println("业务选择错误！");
                     }
                 }
                 break;
                 //取款业务
                 case 3: {
-                    System.out.println("请输入对应数字获取对应业务:\n" +
-                            "1.取活期\n" +
-                            "2.取定期\n" +
-                            "3.返回主菜单");
+                    System.out.println("""
+                            请输入对应数字获取对应业务:
+                            1.取活期
+                            2.取定期
+                            3.返回主菜单""");
                     inputNum = scanner.nextInt();
                     switch (inputNum) {
                         //取活期
@@ -184,14 +183,16 @@ public class Main {
             }
             case 4: {
                 System.out.println(
-                        "输入数字获取对应业务:\n" +
-                                "1.修改用户名\n" +
-                                "2.修改业务账号\n" +
-                                "3.返回主菜单\n");
+                        """
+                                输入数字获取对应业务:
+                                1.修改用户名
+                                2.修改业务账号
+                                3.返回主菜单
+                                """);
                 inputNum = scanner.nextInt();
 
                 switch (inputNum) {
-                    case 1: {
+                    case 1 -> {
                         System.out.println("请输入新的用户名：");
                         tempString = scanner.nextLine();
                         if (tempString.equals(" ")) {
@@ -200,23 +201,19 @@ public class Main {
                             userInformation.setUserName(scanner.next());
                         }
                         System.out.println("修改成功！\n新用户名为：" + userInformation.getUserName());
-                        break;
                     }
-                    case 2: {
+                    case 2 -> {
                         System.out.println("请输入新的业务账号:");
                         inputNum = scanner.nextInt();
                         if (inputNum > 20220000 && inputNum <= 20229999) {
                             userInformation.setAccount(inputNum);
                             System.out.println(" 成功！\n新用户名为：" + userInformation.getAccount() + "\n");
                         } else {
-                            System.out.println("业务账号格式错误！格式为 2022XXXX \n");
+                            System.out.println("业务账号格式错误！格式为 2022**** \n");
                         }
-                        break;
 
                     }
-                    default: {
-                        System.out.println("数字输入错误！请输入正确数字！");
-                    }
+                    default -> System.out.println("数字输入错误！请输入正确数字！");
                 }
                 break;
             }
