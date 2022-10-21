@@ -28,6 +28,11 @@ public class Main {
 
         Calendar calendar=Calendar.getInstance();
         LocalDate localDate;
+        localDate=LocalDate.of(
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH)+1,
+                calendar.get(Calendar.DAY_OF_MONTH)
+        );
         //接收输入的业务数字
         int inputNum;
 
@@ -58,7 +63,7 @@ public class Main {
             switch (inputNum) {
                 //查询余额
                 case 1: {
-                    //调用flexibleDepostion类和stableDeposition类中的getter方法查询用户相关信息并输出
+                    //调用flexibleDeposition类和stableDeposition类中的getter方法查询用户相关信息并输出
                     double allNum = flexibleDeposition.getCurrentBalance() + stableDeposition.getCurrentBalance();
                     System.out.println(userInformation.getUserName() + "," +
                             userInformation.getAccount() + "," +
@@ -152,17 +157,15 @@ public class Main {
                             tempBalance = scanner.nextDouble();
                             if (flexibleDeposition.isLegalInputNum(tempBalance)) {
                                 flexibleDeposition.setCurrentBalance(flexibleDeposition.getCurrentBalance() - tempBalance);
-                                System.out.println("取出成功！\n您当前可用的金额为：" + flexibleDeposition.getCurrentBalance());
+                                System.out.println("取出成功！\n" +
+                                        "您当前可用的金额为：" + flexibleDeposition.getCurrentBalance()+"\n" +
+                                        "取出时间："+localDate+"\n");
                             }
                             break;
                         }
                         case 2: {
-                            localDate=LocalDate.of(
-                                    calendar.get(Calendar.YEAR),
-                                    calendar.get(Calendar.MONTH)+1,
-                                    calendar.get(Calendar.DAY_OF_MONTH)
-                            );
-                            if (stableDeposition.getInputTime().isBefore(localDate)){
+
+                            if (stableDeposition.getInputTime().isAfter(localDate)){
                                 System.out.println("尚未到期无法取出！");
                             }
                             else {
