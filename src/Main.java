@@ -33,7 +33,7 @@ public class Main {
 
         //临时记录存款金额
         double tempBalance;
-
+        
         //临时接受输入的字符串
         String tempString;
 
@@ -53,6 +53,8 @@ public class Main {
                             " ------------");
             //根据输入的数字办理业务
             inputNum = scanner.nextInt();
+            //临时记录输入的定期时间月数
+            int inputMonth = 0;
             switch (inputNum) {
                 //查询余额
                 case 1: {
@@ -101,6 +103,7 @@ public class Main {
                                     tempBalance = scanner.nextDouble();
                                     if (tempBalance > 0) {
                                         stableDeposition.setDesProcess(tempBalance, inputNum);
+                                        inputMonth=inputNum;
                                     } else {
                                         System.out.println("输入的存款需大于0元！\r\n");
                                     }
@@ -159,7 +162,7 @@ public class Main {
                                     calendar.get(Calendar.MONTH)+1,
                                     calendar.get(Calendar.DAY_OF_MONTH)
                             );
-                            if (stableDeposition.getInputTime().isAfter(localDate)){
+                            if (stableDeposition.getInputTime().isBefore(localDate)){
                                 System.out.println("尚未到期无法取出！");
                             }
                             else {
@@ -167,7 +170,11 @@ public class Main {
                                 tempBalance=scanner.nextDouble();
                                 if (stableDeposition.isLegalInputNum(tempBalance)){
                                     stableDeposition.setCurrentBalance(stableDeposition.getCurrentBalance()-tempBalance);
-                                    System.out.println("取出成功！已经取出:￥"+tempBalance);
+                                    System.out.println("取出成功！已经取出:￥"+tempBalance+"\n"+
+                                            "同时取出所有利息："+stableDeposition.getInterest()*12+"\n" +
+                                            "利率为："+(stableDeposition.getInterestStage(inputMonth)*100+"%")+"\n" +
+                                            "取出时间："+localDate);
+
                                 }
 
                             }
@@ -223,6 +230,7 @@ public class Main {
             case 5: {
                 System.out.println("即将退出,感谢您的使用....");
                 isEnd = -2;
+                break;
             }
             default: {
                 System.out.println("数字输入错误！请输入正确数字！");

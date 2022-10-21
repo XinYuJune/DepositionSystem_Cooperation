@@ -12,7 +12,7 @@ public class StableDeposition extends Deposition {
     //存款利率6个档位，使用数组存储
     double[] interestStage = {0.0135, 0.0155, 0.0175, 0.0225, 0.0275, 0.0275};
     //存款时间6个档位，使用数组存储
-    int[] interestStageTime = {0, 6, 12, 24, 36, 60};
+    int[] interestStageTime = {3, 6, 12, 24, 36, 60};
     //利息变量
     double interest;
 
@@ -40,9 +40,9 @@ public class StableDeposition extends Deposition {
     public void pMessage(int stage) {
         System.out.println(
                 "存入成功！当前定期余额为:" + getCurrentBalance() + "(" + interestStageTime[stage] + "个月)\n" +
-                "利率为:" + getInterestStage(stage) * 100 + "%\n" +
-                "利息为:" + getInterest() + "元/月\n" +
-                "本息合计为:" + (getCurrentBalance() + getInterest() * interestStageTime[stage]) + "元"
+                        "利率为:" + getInterestStage(stage) * 100 + "%\n" +
+                        "利息为:" + getInterest() + "元/月\n" +
+                        "本息合计为:" + (getCurrentBalance() + getInterest() * interestStageTime[stage]) + "元"
         );
         getDeadlineTime(stage);
 
@@ -54,7 +54,8 @@ public class StableDeposition extends Deposition {
         setCurrentBalance(balance);
         pMessage(stage - 1);
     }
-    public LocalDate getInputTime(){
+
+    public LocalDate getInputTime() {
         return dateInput;
     }
 
@@ -68,9 +69,10 @@ public class StableDeposition extends Deposition {
 //        int minute = calendar.get(Calendar.MINUTE);
 //        int second = calendar.get(Calendar.SECOND);
 //        int week = calendar.get(Calendar.DAY_OF_WEEK);
-        dateInput=LocalDate.of(year,month,date);
+        dateInput = LocalDate.of(year, month, date);
         System.out.println(dateInput);
         System.out.printf("到期时间：%d-%02d-%02d  %tA\r\n", year, month, date, calendar);
 
     }
+
 }
